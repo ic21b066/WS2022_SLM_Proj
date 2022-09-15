@@ -1,1 +1,1 @@
-# WS2022_SLM
+# WS2022_SLM_Proj
