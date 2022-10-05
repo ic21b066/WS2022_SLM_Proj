@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="WS2022_SLM_Proj" target="1.5" />
+      <module name="WS2022_SLM_Proj" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
