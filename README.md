@@ -3,5 +3,5 @@
 This repo stores the assignment done by
 
 ic21b045,
-ic21b066,
+ic21b066 (anemac1),
 ic20b044
