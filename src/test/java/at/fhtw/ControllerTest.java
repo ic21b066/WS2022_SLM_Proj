@@ -19,7 +19,8 @@ class ControllerTest {
     private TestRestTemplate testRestTemplate;
 
     @Test
-    public void testAdd(){  //kein static, damit in test aufscheinend
+    public void testTest()
+    {
         //Arrange
         long summe;
         //Act
