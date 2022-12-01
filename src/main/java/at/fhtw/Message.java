@@ -6,10 +6,6 @@ public class Message {
 
     public Message(){}
 
-//    public long add(int numberOne, int numberTwo) {
-//        return numberOne+numberTwo;
-//    }
-
     public void set(String text)
     {
         setMessage(text);
@@ -27,7 +23,6 @@ public class Message {
     public String getMessage() {
         return message;
     }
-
 
     public void setMessage(String message) {
         this.message = message;

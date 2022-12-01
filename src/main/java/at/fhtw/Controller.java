@@ -9,25 +9,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
     private Message m = new Message();
 
-//    @GetMapping("/api/message")
-//    public long addNumbers(@RequestParam(name="numberOne") int numberOne, @RequestParam(name="numberTwo") int numberTwo) {
-//        return m.add(numberOne, numberTwo);
-//    }
-
-
-    @PostMapping("/api/message/set")
+    @PostMapping("/api/message/set")  //http://localhost:8080/api/message/set?m=bla
     public String set(@RequestParam(name="m") String text) {
         m.set(text);
         return m.sayOK();
     }
 
-    @PostMapping("/api/message/reset")
+    @PostMapping("/api/message/reset") //http://localhost:8080/api/message/reset
     public String reset() {
         m.reset();
         return m.sayOK();
     }
 
-    @GetMapping("/api/message")
+    @GetMapping("/api/message") //http://localhost:8080/api/message
     public String show() {
         return m.getMessage();
     }
