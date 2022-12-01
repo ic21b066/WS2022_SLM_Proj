@@ -7,12 +7,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class MainTest {
-    @Test
-    public void  contextLoads() {
-        //Arrange
 
+    //sanity check test that will fail if the application context cannot start
+    @Test
+    void contextLoads() {
+    }
+
+    @Test
+    public void Main_working_JUnitTest() {
+        //Arrange
+        long summe2;
         //Act
-        long summe2 = 3;
+        summe2 = 3;
         //Assert
         assertEquals(3,summe2);
     }

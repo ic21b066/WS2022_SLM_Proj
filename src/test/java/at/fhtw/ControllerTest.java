@@ -1,13 +1,14 @@
 package at.fhtw;
 
+
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.http.ResponseEntity;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -19,40 +20,43 @@ class ControllerTest {
     private TestRestTemplate testRestTemplate;
 
     @Test
-    public void testTest()
-    {
-        //Arrange
-        long summe;
-        //Act
-        summe = 2;
-        //Assert
-        assertEquals(2,summe);
+    public void Controller_ShouldReturnDefaultMessage() {
+        assertThat(this.testRestTemplate.getForObject("http://localhost:" + port + "/",
+                String.class)).contains("Hello, Tester!");
     }
 
-//    @Test
-//    public void shouldDeliverCorrectResult(){
-//        //Arrange
-//        int expectedResult=5;
-//
-//        //Act
-//        int actualResult= testRestTemplate.getForObject("http://localhost:" + port + "/api/message?numberOne=2&numberTwo=3", Integer.class);
-//
-//        //Assert
-//        assertEquals(expectedResult, actualResult);
-//    }
-//
-//    @ParameterizedTest
-//    @CsvSource({"2,2,4", "-2,8,6","256,1024,1280"})
-//    public void Controller_shouldReturnCorrectSum_AddIntegers(int numberOne, int numberTwo, long result){
-//        //Arrange
-////        int firstNumber= numberOne;
-////        int secondNUmber= numberTwo;
-////        long expectedResult = result;
-//
-//        //Act
-//        int actualResult= testRestTemplate.getForObject("http://localhost:"+port+String.format("/api/message?numberOne=%s&numberTwo=%s", numberOne,numberTwo), Integer.class);
-//
-//        //Assert
-//        assertEquals(result,actualResult);
-//    }
+    @Test
+    public void Controller_shouldDeliverNullString() {
+        //Arrange
+        String expResult = "A";
+
+        //Act
+        String actualResult = testRestTemplate.getForObject("http://localhost:" + port + "/api/message", String.class);
+
+        //Assert
+        assertEquals(expResult, actualResult);
+    }
+
+    @Test
+    public void Controller_shouldDeliverOKString(){
+        //Arrange
+        String expResult = "OK";
+
+        //Act
+        String actualResult = testRestTemplate.postForObject("http://localhost:" + port + "/api/message/set?m=A", null, String.class);
+
+        //Assert
+        assertEquals(expResult, actualResult);
+    }
+
+    @Test
+    public void Controller_shouldDeliverOKAnswerWithPost(){
+        //Arrange
+
+        //Act
+        ResponseEntity<String> actualResult = testRestTemplate.postForEntity("http://localhost:" + port + "/api/message/set?m=A", null, String.class);
+
+        //Assert
+        assertEquals(200, actualResult.getStatusCodeValue());
+    }
 }

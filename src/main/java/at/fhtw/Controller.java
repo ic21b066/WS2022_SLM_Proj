@@ -1,13 +1,10 @@
 package at.fhtw;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class Controller {
-    private Message m = new Message();
+    private final Message m = new Message();
 
     @PostMapping("/api/message/set")  //http://localhost:8080/api/message/set?m=bla
     public String set(@RequestParam(name="m") String text) {
@@ -24,5 +21,11 @@ public class Controller {
     @GetMapping("/api/message") //http://localhost:8080/api/message
     public String show() {
         return m.getMessage();
+    }
+
+    //maps all HTTP operations,  may also use @GetMapping or @RequestMapping(method=GET)
+    @RequestMapping("/")
+    public @ResponseBody String greeting() {
+        return "Hello, Tester!";
     }
 }

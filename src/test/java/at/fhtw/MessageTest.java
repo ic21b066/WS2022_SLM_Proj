@@ -17,24 +17,22 @@ class MessageTest {
 //        assertEquals(4,summe);
 //    }
 
-//    @ParameterizedTest
-//    @CsvSource({"2,2,4", "-2,8,6","256,1024,1280"})
-//    public void Controller_shouldReturnCorrectSum_AddIntegers(int numberOne, int numberTwo, long result){
-//        //Arrange
-//        Message m = new Message();
-////        int firstNumber= numberOne;
-////        int secondNUmber= numberTwo;
-////        long expectedResult = result;
-//
-//        //Act
-//        long actualResult= m.add(numberOne,numberTwo);
-//
-//        //Assert
-//        assertEquals(result,actualResult);
-//    }
+    @ParameterizedTest
+    @CsvSource({"Maintenance", "6"})
+    public void Message_shouldReturnCorrect_Set(String actual){
+        //Arrange
+        Message m = new Message();
+
+        //Act
+        m.set(actual);
+        String result = m.getMessage();
+
+        //Assert
+        assertEquals(result,actual);
+    }
 
     @Test
-    void reset() {
+    void Message_shouldReturnCorrect_Reset() {
         //Arrange
         Message m = new Message();
         //Act
@@ -45,7 +43,7 @@ class MessageTest {
     }
 
    @Test
-    void sayOK() {
+    void Message_shouldReturnCorrect_sayOK() {
        //Arrange
        Message m = new Message();
        //Act
