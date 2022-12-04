@@ -29,6 +29,13 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: copy to export
+      run: mkdir export && cp target/*.jar export
+    - name: upload
+      uses: actions/upload-artifact@v3
+      with:
+       name: Package
+       path: upload
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
