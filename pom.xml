@@ -59,14 +59,14 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>Main</mainClass>
+                            <mainClass>at.fhtw.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.4.2</version>
+                <!-- <version>3.4.2</version> -->
                 <executions>
                     <execution>
                         <id>make assembly</id>
@@ -80,7 +80,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>Main</mainClass>
+                            <mainClass>at.fhtw.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
