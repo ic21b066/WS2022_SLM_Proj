@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.*;
 public class Controller {
     private final Message m = new Message();
 
-    @PostMapping("/api/message/set")  //http://localhost:8080/api/message/set?m=bla
+    @GetMapping("/api/message/set")  //http://localhost:8080/api/message/set?m=bla
     public String set(@RequestParam(name="m") String text) {
         m.set(text);
         return m.sayOK();
     }
 
-    @PostMapping("/api/message/reset") //http://localhost:8080/api/message/reset
+    @GetMapping("/api/message/reset") //http://localhost:8080/api/message/reset
     public String reset() {
         m.reset();
         return m.sayOK();

@@ -28,7 +28,7 @@ class ControllerTest {
     @Test
     public void Controller_shouldDeliverNullString() {
         //Arrange
-        String expResult = "A";
+        String expResult = "123";
 
         //Act
         String actualResult = testRestTemplate.getForObject("http://localhost:" + port + "/api/message", String.class);
@@ -43,18 +43,18 @@ class ControllerTest {
         String expResult = "OK";
 
         //Act
-        String actualResult = testRestTemplate.postForObject("http://localhost:" + port + "/api/message/set?m=A", null, String.class);
+        String actualResult = testRestTemplate.getForObject("http://localhost:" + port + "/api/message/set?m=123", String.class);
 
         //Assert
         assertEquals(expResult, actualResult);
     }
 
     @Test
-    public void Controller_shouldDeliverOKAnswerWithPost(){
+    public void Controller_shouldDeliverOKAnswer(){
         //Arrange
 
         //Act
-        ResponseEntity<String> actualResult = testRestTemplate.postForEntity("http://localhost:" + port + "/api/message/set?m=A", null, String.class);
+        ResponseEntity<String> actualResult = testRestTemplate.getForEntity("http://localhost:" + port + "/api/message/set?m=A", null, String.class);
 
         //Assert
         assertEquals(200, actualResult.getStatusCodeValue());
