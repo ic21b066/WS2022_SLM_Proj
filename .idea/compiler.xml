@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="WS2022_SLM_Proj" target="19" />
+      <module name="WS2022_SLM_Proj" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
