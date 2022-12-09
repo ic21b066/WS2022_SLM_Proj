@@ -6,7 +6,7 @@ ic21b045,
 ic21b066 (anemac1),
 ic20b044
 
-Sample project in SLM course, featuring a REST-Server based on SpringBoot Framework to set and read messages concerning maintenance ("Maintenance monitor")
+Semester project in SLM course, featuring a REST-Server based on SpringBoot Framework to set and read messages concerning maintenance ("Maintenance monitor")
 
 ## How to run program
 
